@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SexyTreetrunks">
+    <title>Hexo 블로그 관련 정리 - SexyTreetrunks</title>
+    <meta name="author" content="Treetrunks">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Treetrunks","sameAs":["https://github.com/sexytreetrunks"],"image":"treetrunks.jpg"},"articleBody":"\n헥소 설치 및 시작헥소 시작테마 설치  \n게시물 작성하기\nhexo new 게시물제목일케하면 블로그루트/source/_post 경로안에 md파일 만들어짐.\n\nhexo layout 종류\npost\n파일경로 : source/_posts\n홈페이지에 게시되는 기본글. \n디폴트 레이아웃임\n명령어 : hexo new 게시물제목 혹은 hexo new post 게시물제목\n\n\n\n\ndraft\n파일경로 : source/_drafts\n초안. 바로 게시하지 않고 작성할수 있음\n명령어: hexo new draft 게시물제목\n한번에 여러 포스트를 작성중일때, 바로 반영안할 포스트들을 모아놓는 저장공간\n\n\n\n스캐폴드 만들기포스트, 페이지, 드래프트를 만들떄 처음에 나오는 구조를 정의하는 파일scaffolds/ 안에있는 md파일을 수정하면됨자세한건 링크 참조\n기본 명령어 모음hexo 빌드(markdown -&gt; html)  : hexo generate 또는 hexo g\n로컬에서 확인: hexo server\ngithub에 업로드: hexo deploy 혹은 hexo d\nhexo 빌드 &amp; github 업로드: hexo g --d\n전역자원폴더(/source/*)와 포스트자원폴더포스트에서 사용하는 자원(이미지,동영상,링크 등등)을 관리하는 폴더관리방법은 두가지가 있음  \n\n전역자원폴더 \n포스트에서 올린 모든 자원을 모두 한 폴더에서 관리\n/source 안에 폴더만들면 해당 폴더명으로 접근할수있음.\n어느포스트에서나 동일하게 접근가능함.\n\n\n포스트자원폴더\n포스트마다 자원을 저장하는 폴더를 따로 생성&amp;관리   (새 글 만들때마다 자원폴더 생성됨)\n_config.yml 에서 post_asset_folder: true 로 설정해야함\n주의사항 : ![](example.png) 이렇게 사용하면 포스트상에서는 동작되지만, 카테고리, 태그, 어카이브 등으로 포스트를 접속할경우 url이 달라져서 이미지에 접근이 안됨. 따라서 이렇게 작성 \n\n\n\n자동 태그 플러그인자동태그플러그인마크다운 같은 hexo 자체 문법이라고 생각하면됨. 쫌 쓸만함.\n포스트삭제하기참고링크  \n\n해당 포스트의 md파일 삭제  \nhexo clean  \nhexo g --d  \n\n브랜치관리(소스파일 관리)참고링크hexo deploy를 하게되면 깃허브에 렌더링된 정적파일들만 올라가기 때문에 소스파일을 관리하고싶다면 따로 올려야함. 소스파일과 정적파일들을 같은 repository에서 관리할경우 해당 폴더에서 새로 브랜치를파서 깃허브에 올리면됨. 자세한건 링크참조  \n오픈그래프참고링크웹 사이트의 URL 링크 공유 시 미리보기를 만들 때 오픈그래프 태그를 사용블로그루트/themes/landscape/_config.yml에서 Miscellaneous 항목에서 설정가능  ","dateCreated":"2018-09-23T02:14:54+09:00","dateModified":"2018-09-27T04:46:29+09:00","datePublished":"2018-09-23T02:14:54+09:00","description":"\n헥소로 깃허브블로그 구축할때 참고한 링크랑 필요한거 정리","headline":"Hexo 블로그 관련 정리","image":["https://pbs.twimg.com/profile_images/476729162707644418/mQZOTo9f.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://sexytreetrunks.github.io/2018/09/23/hexo/"},"publisher":{"@type":"Organization","name":"Treetrunks","sameAs":["https://github.com/sexytreetrunks"],"image":"treetrunks.jpg","logo":{"@type":"ImageObject","url":"treetrunks.jpg"}},"url":"http://sexytreetrunks.github.io/2018/09/23/hexo/","keywords":"hexo, github, hexoblog","thumbnailUrl":"https://pbs.twimg.com/profile_images/476729162707644418/mQZOTo9f.png"}</script>
+    <meta name="description" content="헥소로 깃허브블로그 구축할때 참고한 링크랑 필요한거 정리">
+<meta name="keywords" content="hexo,github,hexoblog">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo 블로그 관련 정리">
+<meta property="og:url" content="http://sexytreetrunks.github.io/2018/09/23/hexo/index.html">
+<meta property="og:site_name" content="SexyTreetrunks">
+<meta property="og:description" content="헥소로 깃허브블로그 구축할때 참고한 링크랑 필요한거 정리">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-26T19:46:29.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo 블로그 관련 정리">
+<meta name="twitter:description" content="헥소로 깃허브블로그 구축할때 참고한 링크랑 필요한거 정리">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://sexytreetrunks.github.io/assets/images/treetrunks.jpg"/>
+    
+    
+        <meta property="og:image" content="https://pbs.twimg.com/profile_images/476729162707644418/mQZOTo9f.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://pbs.twimg.com/profile_images/476729162707644418/mQZOTo9f.png" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">SexyTreetrunks</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/treetrunks.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/treetrunks.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Treetrunks</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>?</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                            title="Search"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/sexytreetrunks" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/atom.xml"
+                            
+                            title="RSS"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title">
+            Hexo 블로그 관련 정리
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-09-23T02:14:54+09:00">
+	
+		    Sep 23, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/hexo/">hexo</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+<h3 id="헥소-설치-및-시작"><a href="#헥소-설치-및-시작" class="headerlink" title="헥소 설치 및 시작"></a>헥소 설치 및 시작</h3><p><a href="https://kdydesign.github.io/2017/06/23/start-hexo-blog/" target="_blank" rel="noopener">헥소 시작</a><br><a href="https://kdydesign.github.io/2017/07/07/hexo-themes/" target="_blank" rel="noopener">테마 설치</a>  </p>
+<h3 id="게시물-작성하기"><a href="#게시물-작성하기" class="headerlink" title="게시물 작성하기"></a>게시물 작성하기</h3><ul>
+<li><code>hexo new 게시물제목</code><br>일케하면 <code>블로그루트/source/_post</code> 경로안에 md파일 만들어짐.</li>
+</ul>
+<h3 id="hexo-layout-종류"><a href="#hexo-layout-종류" class="headerlink" title="hexo layout 종류"></a>hexo layout 종류</h3><ul>
+<li>post<ul>
+<li>파일경로 : <code>source/_posts</code></li>
+<li>홈페이지에 게시되는 기본글. </li>
+<li>디폴트 레이아웃임<ul>
+<li>명령어 : <code>hexo new 게시물제목</code> 혹은 <code>hexo new post 게시물제목</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>draft<ul>
+<li>파일경로 : <code>source/_drafts</code></li>
+<li>초안. 바로 게시하지 않고 작성할수 있음</li>
+<li>명령어: <code>hexo new draft 게시물제목</code></li>
+<li>한번에 여러 포스트를 작성중일때, 바로 반영안할 포스트들을 모아놓는 저장공간</li>
+</ul>
+</li>
+</ul>
+<h3 id="스캐폴드-만들기"><a href="#스캐폴드-만들기" class="headerlink" title="스캐폴드 만들기"></a>스캐폴드 만들기</h3><p>포스트, 페이지, 드래프트를 만들떄 처음에 나오는 구조를 정의하는 파일<br>scaffolds/ 안에있는 md파일을 수정하면됨<br>자세한건 링크 참조</p>
+<h3 id="기본-명령어-모음"><a href="#기본-명령어-모음" class="headerlink" title="기본 명령어 모음"></a>기본 명령어 모음</h3><p>hexo 빌드(markdown -&gt; html)  : <code>hexo generate</code> 또는 <code>hexo g</code></p>
+<p>로컬에서 확인: <code>hexo server</code></p>
+<p>github에 업로드: <code>hexo deploy</code> 혹은 <code>hexo d</code></p>
+<p>hexo 빌드 &amp; github 업로드: <code>hexo g --d</code></p>
+<h3 id="전역자원폴더-source-와-포스트자원폴더"><a href="#전역자원폴더-source-와-포스트자원폴더" class="headerlink" title="전역자원폴더(/source/*)와 포스트자원폴더"></a>전역자원폴더(<code>/source/*</code>)와 포스트자원폴더</h3><p>포스트에서 사용하는 자원(이미지,동영상,링크 등등)을 관리하는 폴더<br>관리방법은 두가지가 있음  </p>
+<ul>
+<li>전역자원폴더 <ul>
+<li>포스트에서 올린 모든 자원을 모두 한 폴더에서 관리</li>
+<li><code>/source</code> 안에 폴더만들면 해당 폴더명으로 접근할수있음.</li>
+<li>어느포스트에서나 동일하게 접근가능함.</li>
+</ul>
+</li>
+<li>포스트자원폴더<ul>
+<li>포스트마다 자원을 저장하는 폴더를 따로 생성&amp;관리<br>   (새 글 만들때마다 자원폴더 생성됨)</li>
+<li><code>_config.yml</code> 에서 <code>post_asset_folder: true</code> 로 설정해야함</li>
+<li>주의사항 : <code>![](example.png)</code> 이렇게 사용하면 포스트상에서는 동작되지만, 카테고리, 태그, 어카이브 등으로 포스트를 접속할경우 url이 달라져서 이미지에 접근이 안됨. 따라서 이렇게 작성 <code></code></li>
+</ul>
+</li>
+</ul>
+<h3 id="자동-태그-플러그인"><a href="#자동-태그-플러그인" class="headerlink" title="자동 태그 플러그인"></a>자동 태그 플러그인</h3><p><a href="http://futurecreator.github.io/2016/06/19/hexo-tag-plugins/" target="_blank" rel="noopener">자동태그플러그인</a><br>마크다운 같은 hexo 자체 문법이라고 생각하면됨. 쫌 쓸만함.</p>
+<h3 id="포스트삭제하기"><a href="#포스트삭제하기" class="headerlink" title="포스트삭제하기"></a>포스트삭제하기</h3><p><a href="http://futurecreator.github.io/2017/01/15/how-to-delete-post-in-hexo/" target="_blank" rel="noopener">참고링크</a>  </p>
+<ol>
+<li>해당 포스트의 md파일 삭제  </li>
+<li><code>hexo clean</code>  </li>
+<li><code>hexo g --d</code>  </li>
+</ol>
+<h3 id="브랜치관리-소스파일-관리"><a href="#브랜치관리-소스파일-관리" class="headerlink" title="브랜치관리(소스파일 관리)"></a>브랜치관리(소스파일 관리)</h3><p><a href="https://nillk.github.io/2017/09/04/Hexo-source-managing-with-git-branch/" target="_blank" rel="noopener">참고링크</a><br><code>hexo deploy</code>를 하게되면 깃허브에 렌더링된 정적파일들만 올라가기 때문에 소스파일을 관리하고싶다면 따로 올려야함. 소스파일과 정적파일들을 같은 repository에서 관리할경우 해당 폴더에서 새로 브랜치를파서 깃허브에 올리면됨. 자세한건 링크참조  </p>
+<h3 id="오픈그래프"><a href="#오픈그래프" class="headerlink" title="오픈그래프"></a>오픈그래프</h3><p><a href="http://futurecreator.github.io/2016/06/16/opengraph-social-meta-tag/" target="_blank" rel="noopener">참고링크</a><br>웹 사이트의 URL 링크 공유 시 미리보기를 만들 때 오픈그래프 태그를 사용<br><code>블로그루트/themes/landscape/_config.yml</code>에서 <code>Miscellaneous</code> 항목에서 설정가능  </p>
+            
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/github/">github</a> <a class="tag tag--primary tag--small t-link" href="/tags/hexo/">hexo</a> <a class="tag tag--primary tag--small t-link" href="/tags/hexoblog/">hexoblog</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/26/hexotheme/" data-tooltip="Hexo 테마적용 (Tranquilpeak theme)" aria-label="PREVIOUS: Hexo 테마적용 (Tranquilpeak theme)">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Treetrunks. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/09/26/hexotheme/" data-tooltip="Hexo 테마적용 (Tranquilpeak theme)" aria-label="PREVIOUS: Hexo 테마적용 (Tranquilpeak theme)">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://sexytreetrunks.github.io/2018/09/23/hexo/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://sexytreetrunks.github.io/2018/09/23/hexo/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://sexytreetrunks.github.io/2018/09/23/hexo/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://sexytreetrunks.github.io/2018/09/23/hexo/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/treetrunks.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Treetrunks</h4>
+        
+            <div id="about-card-bio"><p>?</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>?</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                ?
+            </div>
+        
+    </div>
+</div>
+
+        
+            <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://sexytreetrunks.github.io/2018/09/23/hexo/">
+                            <img class="media-image" src="https://pbs.twimg.com/profile_images/476729162707644418/mQZOTo9f.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://sexytreetrunks.github.io/2018/09/23/hexo/">
+                            <h3 class="media-heading">Hexo 블로그 관련 정리</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 23, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><a id="more"></a>
+<p>헥소로 깃허브블로그 구축할때 참고한 링크랑 필요한거 정리</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://sexytreetrunks.github.io/2018/09/26/hexotheme/">
+                            <img class="media-image" src="https://i.pinimg.com/originals/a8/06/85/a806855b99f8cfaeee1ff2266eec3555.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://sexytreetrunks.github.io/2018/09/26/hexotheme/">
+                            <h3 class="media-heading">Hexo 테마적용 (Tranquilpeak theme)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 26, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><a id="more"></a>
+<p>Tranquilpeak 테마 적용후 설정관련 정리</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                2 posts found
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('7W4T5I193T', 'b702615a29497b1a5f940d32178beeb5');
+        var algoliaIndex = algoliaClient.initIndex('my-hexo-blog');
+    </script>
+
+
+    </body>
+</html>
