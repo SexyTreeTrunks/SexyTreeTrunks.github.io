@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
-timezone:
+title: SexyTreetrunks
+subtitle: ㅇ,<
+description: 꼭 나중에 짱이되어서 맨날 불알터트리고 못된놈들 다 패버릴거임.
+keywords: 
+author: Treetrunks
+language: en
+timezone: 
+
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://sexytreetrunks.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -35,7 +36,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -49,7 +50,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: '/'
   per_page: 10
   order_by: -date
   
@@ -73,10 +74,33 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: tranquilpeak
+
+# algoliasearch plugins
+# plugins:
+#   - hexo-algoliasearch
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: https://github.com/sexytreetrunks/sexytreetrunks.github.io.git
+
+# Feed for RSS
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+
+# Algolia Config
+algolia:
+  chunkSize: 5000
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
